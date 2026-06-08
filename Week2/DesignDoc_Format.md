@@ -8,16 +8,13 @@
 
 Briefly explain what the program does and what problem it solves.
 
-Example:
-"The program calculates a student's final grade based on homework, quizzes, and exam scores."
-
 ---
 
 ## Inputs
 
 List all inputs the program will receive.
 
-EXAMPLE:
+Example:
 
 * Student name
 * Homework score
@@ -30,7 +27,7 @@ EXAMPLE:
 
 List what the program will display or produce.
 
-EXAMPLE:
+Example:
 
 * Student name
 * Final grade
@@ -40,9 +37,6 @@ EXAMPLE:
 
 ## Variables
 
-List important variables.
-
-EXAMPLE:
 | Variable | Type   | Purpose                   |
 | -------- | ------ | ------------------------- |
 | score    | double | Stores test score         |
@@ -53,7 +47,19 @@ EXAMPLE:
 
 ## Key Design Choices
 
-Write any design choice that you made over all possible choices and why. 
+Explain any important decisions you made when designing the program.
+
+Examples:
+
+* Why did you use a loop instead of repeating code?
+* Why did you choose a function for a task?
+* Why did you use an array/vector instead of separate variables?
+* Why did you use an if-else statement instead of a switch statement?
+
+Example:
+"I used a loop to process multiple scores because it reduces code duplication and makes the program easier to modify if the number of scores changes."
+
+---
 
 ## Program Steps (Algorithm)
 
@@ -65,7 +71,7 @@ Write any design choice that you made over all possible choices and why.
 
 ---
 
-## Functions (if required)
+## Functions
 
 ### Function: calculateAverage()
 
@@ -92,17 +98,20 @@ Letter Grade: A
 
 ## Testing
 
-Test Case 1:
+### Test Case 1
 
-* Input: Normal values
-* Expected Result: Correct calculation
+Input: Normal values
 
-Test Case 2:
+Expected Result: Correct calculation
 
-* Input: Minimum values
-* Expected Result: Correct handling
+### Test Case 2
 
-Test Case 3:
+Input: Minimum values
 
-* Input: Maximum values
-* Expected Result: Correct handling
+Expected Result: Correct handling
+
+### Test Case 3
+
+Input: Maximum values
+
+Expected Result: Correct handling
