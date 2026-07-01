@@ -11,7 +11,7 @@ This week we will be covering:
 - Static Variables
 - The Call Stack
 
-**Link to slides:** [Canva]()
+**Link to slides:** [Canva](https://canva.link/hdyu4luc5gi6yel)
 
 ## Homework Tasks
 Please complete the follow check-list by their due dates.  
