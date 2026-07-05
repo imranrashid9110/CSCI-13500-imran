@@ -1,0 +1,41 @@
+Purpose: The purpose of this program is for the user to play rock paper scissors against a random bot. I tried to fix the code because it didnt explain the code and the inputs and logic were messed up. After fixing the code, it should run well enough so the user can tell whats going on and how to run the program.
+
+Inputs: It receives one input of the user entering rock paper or scissor. It program makes sure they typed in a valid input.
+
+Outputs: In the beginning, it welcomes the user, then introduces the rules of the game. It shows the round number, what the bot chose, and who won the round. It also shows the final winner of the game.
+
+Variables: 
+player_score = stores the player's score
+bot_score = stores the bots score
+player_move stores the move that the player entered
+bot_move stores a random number
+bot_pick = stores the bots move
+
+Key design choices:
+From the orginal code, I didnt change it much because the assignment said to not change the game by alot. It will still follow the normal game the way it was designed. One of the main changes i made was adding a input validation. It made the program still continue even if the user typed in somthing wrong. I used the whole loop so it can keep asking the user until they type in one of the 3 choices. I fixed some of the capitalization problems. Then I improved the ui by displaying more things so the player can understand whats happening. 
+
+Program steps: 
+1. Program starts
+2. Creates variables for the players scores, bot score, bot move, player move and what the bot chose.
+3. The user will see the welcome message
+4. starts up the loop until 3 rounds
+5. if the player has 2 points then it will stop
+6. asks the player to enter either rock paper or scissor
+7. check the input, if its wrong it will keep asking
+8. it will generate a random number
+9. change the bot number to a actual answer like rock paper scissor.
+10. show what the bot chose
+11. compare it to the players move
+12. display the current score
+13. after the loop finishes, it shows the final score.
+14. it decides which player wins
+
+Sample Input/output:
+input : rock
+output : rock paper scissor game
+fist to 2 points wins.
+Round one
+choose either rock paper or scissor:rock
+bot picked: scissor
+You won thie round
+score: player 1 - bot 0 
