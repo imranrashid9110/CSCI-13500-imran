@@ -1,7 +1,7 @@
-#include <iostream>  // Lets us use cout and cin
-#include <string>    // Lets us use string
-#include <cstdlib>   // Lets us use rand() and srand()
-#include <ctime>     // Lets us use time()
+#include <iostream>  // lets us use cout and cin
+#include <string>    // lets use use strings
+#include <cstdlib>   // lets us use rand() and srand()
+#include <ctime>     // lets us use time()
 
 using namespace std;
 
