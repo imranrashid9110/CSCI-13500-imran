@@ -3,7 +3,7 @@
 #include <cstdlib>   // Lets us use rand() and srand()
 #include <ctime>     // Lets us use time()
 
-using namespace std; // Lets us write cout instead of std::cout
+using namespace std;
 
 void welcomeMessage() { // function that shows the game title and rules
     cout << "Rock Paper Scissor Game" << endl; // prints the game title
