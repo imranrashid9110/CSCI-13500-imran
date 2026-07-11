@@ -1,0 +1,212 @@
+# Mystery #1 – The Copycat
+
+**Concepts:** Pass by Copy, Scope, Call Stack
+
+```cpp
+#include <iostream>
+
+void addFive(int number)
+{
+    number += 5;
+    std::cout << "Inside addFive(): " << number << std::endl;
+}
+
+int main()
+{
+    int value = 10;
+
+    addFive(value);
+
+    std::cout << "In main(): " << value << std::endl;
+}
+```
+
+### Questions
+
+1. What is the output of this program? 
+-addFive gives you 15 and in main it gives you 10
+2. Why doesn't `value` change after calling `addFive()`? 
+-The value doesnt change because its a pass by copy. The orginal stays the same. Changing number doesnt change the orginal value of value. 
+3. Where does the variable `number` exist?
+-the variable number exists in the function of addFive()
+4. Draw the call stack while `addFive()` is executing.
+-top = addFive(), number = 15
+-bottom = main(), value = 10
+5. What happens to `number` after the function returns?
+-number gets terminated and removes it from the call stack
+-This is a pass by copy
+
+---
+
+# Mystery #2 – The Mirror
+
+**Concepts:** References, `const`, Modifying Variables
+
+```cpp
+#include <iostream>
+
+void investigate(int& suspect, const int& clue)
+{
+    suspect += clue;
+
+    std::cout << "Inside investigate(): "
+         << suspect << " " << clue << std::endl;
+}
+
+int main()
+{
+    int score = 10;
+    int bonus = 5;
+
+    investigate(score, bonus);
+
+    std::cout << score << " " << bonus << std::endl;
+}
+```
+
+### Questions
+
+1. What is the output of this program?
+-inside investigate = 15 5
+-15 5
+2. Why does `score` change while `bonus` does not?
+-score gets changed because score suspect is a reference to score. So they are connected. Bonus doesnt get changed because it only goes through clue
+3. Why is `clue` declared as a `const` reference?
+- its declared as a const reference so the orginal value is not changeable.
+4. What would happen if the function attempted to modify `clue`?
+- it would give a error because when you use const, you cant modify it.
+5. Draw the call stack while `investigate()` is executing.
+-top = investigate(), suspect -> score, clue -> bonus
+-bottom = score = 15, bonus = 5
+-suspect is a pass by reference
+-clue is a pass by const reference
+
+---
+
+# Mystery #3 – Following the Pointer
+
+**Concepts:** Raw Pointers, Dereferencing, `nullptr`
+
+```cpp
+#include <iostream>
+
+void investigate(int* evidence)
+{
+    if (evidence != nullptr)
+    {
+        *evidence *= 2;
+    }
+}
+
+int main()
+{
+    int clue = 7;
+
+    investigate(&clue);
+
+    std::cout << clue << std::endl;
+}
+```
+
+### Questions
+
+1. What is the output of this program?
+-The output is 14 because it starts off as 7 from clue and is multiplied by 2
+2. Why do we pass `&clue` instead of `clue`?
+-because &clue gets the memory address of clue. % is a operator that find the memory address
+3. What does `*evidence` do?
+-*evidence has acccess to the value stored in the memory address inside evidence. *evidence *= 2; multiplies the value by 2 and is the permanent value unless changed again
+4. Why is the `nullptr` check important?
+- it makes sure it has a valid address. This helps the program from crashing
+5. What would happen if the function was called as `investigate(nullptr);`?
+-nothing will happen
+6. Draw the call stack while `investigate()` is executing.
+-top = investigate(), evidence -> clue, *evidence = 14 
+-bottom = main(), clue = 14
+-pass by pointer
+
+
+---
+
+# Mystery #4 – The Master Case
+
+**Concepts:** Pass by Copy, Pass by Reference, Pass by Pointer, Return Values
+
+```cpp
+#include <iostream>
+
+int mysteryA(int x)
+{
+    x += 10;
+    return x;
+}
+
+void mysteryB(int& y)
+{
+    y *= 2;
+}
+
+void mysteryC(int* z)
+{
+    if (z != nullptr)
+    {
+        (*z)--;
+    }
+}
+
+int main()
+{
+    int value = 5;
+
+    value = mysteryA(value);
+    mysteryB(value);
+    mysteryC(&value);
+
+    std::cout << value << std::endl;
+}
+```
+
+### Questions
+
+1. Predict the output of the program.
+-29 because a = 5+10 = 15, b = 15x2 = 30, c = 30-1 = 29
+2. Draw the call stack after each function call.
+-mysteryA()
+top = mysteryA(), x = 15
+bottom = main(), value = 5
+-mysteryB()=
+top = mysteryB(), y -> value
+bottom = main(), value = 30
+-mysteryC()=
+top = mysteryC(), z -> value, *z= 29
+bottom = main(), value = 29
+3. Which function uses:
+   - Pass by Copy? = mysteryA()
+   - Pass by Reference? = mysteryB()
+   - Pass by Pointer? = mysteryC()
+4. Which functions modify the original variable?
+-mysteryA and mysteryC can modify the orginal variable, pass by copy doesnt change the orginal value
+5. Why does `mysteryA()` return a value, while `mysteryB()` and `mysteryC()` do not?
+-because using pass by copy makes it so that changing x doesnt change the value. mysteryB() and mysteryC() dont really need to return anything because its modifiable. 
+6. Which approach would you choose if your goal was to modify the original variable? Explain your reasoning.
+-I would use pass by reference because it has access and you can directly change the orginal varaible. 
+
+
+---
+
+# Reflection
+
+Answer the following questions in complete sentences.
+
+1. What is the difference between passing a variable by copy, by reference, and by pointer?
+-Pass by copy creates a seperate copy of the orginal variable so it doesnt affect the orginal variable. 
+-Pass by reference gives the function another name to the orginal value so it becomes modifiable. 
+-Pass by pointer gives the functions variables memory address. It must be dereferences so it can be modifiable
+2. When would you choose to use a reference instead of a pointer?
+-You would choose reference when the function needs a valid varaible and doesnt need the use of nullptr. References are also easier to track and read because they dont need to be derefrenced.
+3. Why might a function accept a pointer instead of a reference?
+- a function might accept a pointer when the argument is optional
+4. What role does the `const` keyword play when working with references and pointers?
+- The use of const prevents it from being mofiable. References and pointers arent able to change it.
+5. How does understanding the call stack help explain why variables change—or do not change—during function calls?
+- call stack allows us to see which variables belong to which function. It also lets us see the copied varaibles from the orginal 
