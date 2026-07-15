@@ -1,10 +1,14 @@
 #include <iostream>
 #include <vector>
+<<<<<<< HEAD
 #include <string>
+=======
+>>>>>>> upstream/main
 
 
 void removeCopies(std::vector<int>& data){
 
+<<<<<<< HEAD
     if (data.size() == 0) { // if the vector is empty, it will do nothing and return
         return;
     }
@@ -19,11 +23,23 @@ void removeCopies(std::vector<int>& data){
     }
 
     data.resize(origin); // it removes the extra numbers that repeated
+=======
+    // The vector is sorted in non-decreasing order.
+    // Remove all duplicate values in-place so that
+    // each value appears exactly once.
+    //
+    // Do not create another vector.
+    // Modify the vector named "data" directly.
+    //
+    // Maybe two-pointer method? Hmm?
+    // Hint: resize() function
+>>>>>>> upstream/main
 
 }
 
 void isAnagram(std::string officer_name, std::string spy_name){
 
+<<<<<<< HEAD
     if (officer_name.length() != spy_name.length()) { // if its different lengths, it cannot be anagrams
         std::cout << "IMPOSTER!" << std::endl;
         return;
@@ -47,6 +63,10 @@ void isAnagram(std::string officer_name, std::string spy_name){
     }
 
     std::cout << "No imposter found!" << std::endl; 
+=======
+    // Write code to see if the spy name is an anagram of the officer name 
+    // Maybe a vector of size 26? Hmm?
+>>>>>>> upstream/main
 
 }
 
@@ -59,7 +79,10 @@ int main(){
      for (auto data : server){
         std::cout << data << " "; // 1,1,2,2,2,3,3,4,5,6,6,6
     }
+<<<<<<< HEAD
     std::cout << std::endl;
+=======
+>>>>>>> upstream/main
 
     removeCopies(server);
     
