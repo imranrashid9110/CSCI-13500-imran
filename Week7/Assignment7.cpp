@@ -16,7 +16,6 @@ int main() {
     std::cout << "Enter the replacement word: ";
     std::cin >> replaceWord; // takes the replacement word from the user
     
-    // open files
     std::ifstream inFile; // ifstream opens the input file
     inFile.open(fname); // open the actual file inputted by the user
     
@@ -30,7 +29,6 @@ int main() {
     std::string currentWord; // variable to hold the current word from the input file
     int matches = 0;
     
-    // read word by word
     while (inFile >> currentWord) { // while loop to read the input file word by word
         if (currentWord == targetWord) { // if current word is the same as the target word, it will replace it with replacement
             currentWord = replaceWord;
